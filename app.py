@@ -33,7 +33,9 @@ def dollarValue():
 	driver.get("https://br.investing.com/currencies/usd-brl")
 	wait = WebDriverWait(driver, 5)
 	dollar = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@data-test="instrument-price-last"]')))
+
 	lbl.config(text = "O valor do dollar atualmente: " + dollar.text)
+
 	print(dollar.text)
 	driver.quit()
 
@@ -57,9 +59,6 @@ printButton.pack()
 
 closeButton = Button(frame, text = "Verificar dollar", command = dollarValue)
 closeButton.pack()
-
-dollarText = Label(frame, text=dollar)
-dollarText.pack()
 
 
 # Label Creation 
